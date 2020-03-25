@@ -1,11 +1,11 @@
-hosts: localhost
-connection: local
-tasks:
-  - name: DUCKDNS | get current IP
-    ipify:
-  - name: DUCDKNS | update DUCKDNS registration
-    uri:
-      url: https://www.duckdns.org/update?domains={{duckdns_domain}}&token={{duckdns_token}}&ip={{}}
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: DUCKDNS | get current IP
+      ipify:
+    - name: DUCDKNS | update DUCKDNS registration
+      uri:
+        url: https://www.duckdns.org/update?domains={{duckdns_domain}}&token={{duckdns_token}}&ip={{ipify_public_ip}}
       return_content: yes
-    register: duckdns_response
-    failed_when: "duckdns_response.content is not 'OK'"
+      register: duckdns_response
+      failed_when: "duckdns_response.content is not 'OK'"
