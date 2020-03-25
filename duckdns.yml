@@ -1,4 +1,5 @@
-host: localhost
+hosts: localhost
+connection: local
 tasks:
   - name: DUCKDNS | get current IP
     ipify:
