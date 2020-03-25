@@ -2,7 +2,7 @@
   connection: local
   tasks:
     - name: DUCKDNS | get current IP
-      ipify:
+      ipify_facts:
     - name: DUCDKNS | update DUCKDNS registration
       uri:
         url: https://www.duckdns.org/update?domains={{duckdns_domain}}&token={{duckdns_token}}&ip={{ipify_public_ip}}
