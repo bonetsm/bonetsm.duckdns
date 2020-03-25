@@ -8,4 +8,4 @@
         url: https://www.duckdns.org/update?domains={{duckdns_domain}}&token={{duckdns_token}}&ip={{ipify_public_ip}}
         return_content: yes
       register: duckdns_response
-      failed_when: "duckdns_response.content is not 'OK'"
+      failed_when: "'OK' not in duckdns_response.content"
