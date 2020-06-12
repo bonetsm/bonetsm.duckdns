@@ -3,12 +3,12 @@ pipeline {
         label 'docker-slave'
     }
     stages {
-        stage('pull') {
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
-                    userRemoteConfigs: [[credentialsId: 'bonetsm-github', url: 'https://github.com/bonetsm/bonetsm.duckdns.git']]])
-            }
-        }
+//      stage('pull') {
+//          steps {
+//              checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
+//                  userRemoteConfigs: [[credentialsId: 'bonetsm-github', url: 'https://github.com/bonetsm/bonetsm.duckdns.git']]])
+//          }
+//      }
         stage('build') {
             steps {
                 withCredentials([string(credentialsId: 'duckdns_token', variable: 'duckdns_token'),string(credentialsId: 'duckdns_domain', variable: 'duckdns_domain')]) {
